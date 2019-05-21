@@ -1,0 +1,48 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav class="mat-elevation-z2" #sidenav mode="over" align="start" closed="true">
+    <div class="badge">
+      <div fxFlex="none" class="header-logo" class.lt-md="header-logo-sm">
+        <a href="http://www.2bit.ch/" tabindex="-1">
+          <img src="/assets/img/2bit.svg" class="logo" class.lt-md="logo-sm" />
+        </a>
+      </div>
+      <img class="cover" src="/assets/img/sidenav/badge.png" />
+      <mat-icon (click)="sidenav.close()" class="black hide-icon">arrow_back</mat-icon>
+    </div>
+    <div class="menu" fxLayout="column" fxLayoutAlign="start stretch">
+      <mat-nav-list fxFlex="nogrow">
+        <!-- This is required since side-nave in mode over is per default focusing first focusable element, which is a behavior we don't want -->
+        <a mat-list-item style="height: 0px" routerLink="home"></a>
+        <a *ngFor="let navItem of navItems" mat-list-item [routerLink]="[navItem.path]" (click)="sidenav.close()" routerLinkActive="mat-list-item-focus">
+          {{navItem.data.title}}
+        </a>
+      </mat-nav-list>
+      <div fxLayoutAlign="center end" fxFlex="nogrow" class="bottom">
+        <div fxLayout="column" fxLayoutAlign="start center" fxFlex="nogrow">
+          <div translate="menu.powered"></div>
+          <div>Angular examples provided by
+            <a href="www.2bit.ch">
+              <b>2BIT GmbhH</b>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav>
+  <div fxLayout="column">
+    <mat-toolbar color="primary" class="mat-elevation-z4" fxFlex="nogrow">
+      <button mat-icon-button (click)="sidenav.open()" fxFlex="nogrow">
+        <mat-icon class="mat-24 white">menu</mat-icon>
+      </button>
+      <div fxLayout="row" fxLayoutAlign="end center" fxFlex="grow">
+        <div fxFlex="grow" fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="center center"
+          class.lt-md="header-font-sm">
+          <h1><div>2BIT Angular examples</div></h1>
+        </div>
+      </div>
+    </mat-toolbar>
+    <main class="content" fxFlex="grow">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</mat-sidenav-container>

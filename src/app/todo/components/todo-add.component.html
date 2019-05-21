@@ -1,0 +1,11 @@
+<form novalidate (submit)="onAdd(description.value)">
+    <mat-card class="add-item">
+        <mat-card-header>
+            <mat-card-title>Add a new Item</mat-card-title>
+        </mat-card-header>
+        <mat-form-field>
+            <input matInput placeholder="Todo Beschreibung" #description>
+        </mat-form-field>
+        <button type="submit" mat-button>Add</button>
+    </mat-card>
+</form>

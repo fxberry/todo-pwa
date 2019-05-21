@@ -1,0 +1,4 @@
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="25px">
+    <todo-list [items]="itemsOpen" title="📝 Todo" fxFlex="50"></todo-list>
+    <todo-list [items]="itemsDone" title="✅ Done" fxFlex="50" [hasReset]="true" (reset)="reset.emit()"></todo-list>
+</div>

@@ -1,0 +1,7 @@
+<div class="content" fxLayout="column" fxLayoutGap="25px">
+    <h1>Todo example</h1>
+    <h2>MVC+S architecture</h2>
+
+    <todo-add (add)="onAdd($event)"></todo-add>
+    <todo-view [items]="todos" (reset)="onReset()"></todo-view>
+</div>

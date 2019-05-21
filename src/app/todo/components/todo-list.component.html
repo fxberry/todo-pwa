@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            <todo-item [item]="item" (checked)="onChecked($event, item)" *ngFor="let item of items"></todo-item>
+        </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+        <button *ngIf="hasReset" mat-button (click)="reset.emit()">Reset</button>
+    </mat-card-actions>
+</mat-card>
