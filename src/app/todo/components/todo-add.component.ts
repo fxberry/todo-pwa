@@ -10,7 +10,7 @@ export class TodoAddComponent {
     @Output()
     public add: EventEmitter<TodoItem> = new EventEmitter<TodoItem>();
 
-    @ViewChild('description') private descriptionInput: ElementRef;
+    @ViewChild('description', { static: true }) private descriptionInput: ElementRef;
 
     constructor(public snackBar: MatSnackBar) {
 

@@ -23,7 +23,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
-    RouterModule.forRoot(appRoutes, { useHash: false, preloadingStrategy: NoPreloading, enableTracing: !environment.production }),
+    RouterModule.forRoot(appRoutes, { useHash: false, preloadingStrategy: NoPreloading, enableTracing: !environment.production, relativeLinkResolution: 'legacy' }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
 })
 export class AppModule {
