@@ -36,7 +36,7 @@ export class PushService {
   subscribeToNotification() {
     // Acquire push subscription and afterwards react onto pushes
     this.swPush
-    .requestSubscription({ serverPublicKey: 'BL5nC-N8lmUe8dqnYtgqLFJWtNPt28A8Xp4oY3ka82QUY0H4Jx3kD_rRrvfK9QvC2Ig4KZVNI9kPBL3860GKAjg' })
+    .requestSubscription({ serverPublicKey: 'BFCksJuTRPyjcCFui6BpFkPOgsRxRG7E4dJUMn9v0HH_hKD8t8qTdGJc4_kPLpsE8RW0E3g-m8596hsalBkLSzU' })
     .then((subscription: PushSubscription) => {
       this.registerOnServer(subscription);
     });
@@ -53,7 +53,8 @@ export class PushService {
    // this.swPush.notificationClicks.subscribe((clicked) => {
     this.swPush.messages.subscribe((message: any) => {
       const payload: TodoItem = message.notification.data;
-
+      console.log("got payload: ");
+      console.log(payload.id);
       if (payload) {
         const item = this.todoService.todos.find(
           (itemToFilter: TodoItem) =>

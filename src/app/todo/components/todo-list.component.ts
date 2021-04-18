@@ -22,7 +22,7 @@ export class TodoListComponent {
     }
 
     public onChecked(checked: boolean, item: TodoItem) {
-        item.checked = checked;
+        //item.checked = checked;
         item.lastModified = new Date();
         this.pushService.notifyMe(item.id, checked);
         this.snackBar.open('checked / unchecked item', null, { duration: 1500 });
